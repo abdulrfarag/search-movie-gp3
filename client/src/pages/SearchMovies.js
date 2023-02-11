@@ -44,22 +44,27 @@ const SearchMovies = () => {
 
     try {
       const response = await fetch(
-        `https://www.googleapis.com/movies/v1/volumes?q=${searchInput}`
+        `https://www.omdbapi.com/?s=${searchInput}&apikey=3de5f363`
+        // `https://www.googleapis.com/books/v1/volumes?q=${searchInput}`
       );
 
       if (!response.ok) {
         throw new Error('something went wrong!');
       }
 
-      const { items } = await response.json();
+      const { Search } = await response.json();
+      console.log(Search);
 
-      const movieData = items.map((movie) => ({
-        movieId: movie.id,
-        authors: movie.volumeInfo.authors || ['No author to display'],
-        title: movie.volumeInfo.title,
-        description: movie.volumeInfo.description,
-        image: movie.volumeInfo.imageLinks?.thumbnail || '',
+
+      const movieData = Search.map((video) => ({
+        
+        movieId: video.Year,
+        Year: video.Year || ['No author to display'],
+        title: video.Title,
+        description: video.Title,
+        image: video.Poster || '',
       }));
+      // console.log(search[0]);
 
       setSearchedMovies(movieData);
       setSearchInput('');
@@ -67,6 +72,7 @@ const SearchMovies = () => {
       console.error(err);
     }
   };
+
 
   // create function to handle saving a movie to our database
   const handleSaveMovie = async (movieId) => {
@@ -136,7 +142,7 @@ const SearchMovies = () => {
                 ) : null}
                 <Card.Body>
                   <Card.Title>{movie.title}</Card.Title>
-                  <p className="small">Authors: {movie.authors}</p>
+                  <p className="small">Year: {movie.Year}</p>
                   <Card.Text>{movie.description}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
