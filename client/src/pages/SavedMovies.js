@@ -20,7 +20,7 @@ const SavedMovies = () => {
 
   const userData = data?.me || {}
 
-  // create function that accepts the Movie's mongo _id value as param and deletes the Movie from the database
+  // function that accepts the Movie's mongo _id value as param and deletes the Movie from the database
   const handleDeleteMovie = async (movieId) => {
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;

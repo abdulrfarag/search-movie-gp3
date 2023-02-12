@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect } from 'react';
 import {
   Jumbotron,
@@ -18,34 +17,34 @@ import { saveMovieIds, getSavedMovieIds } from '../utils/localStorage';
 import Auth from '../utils/auth';
 
 const SearchMovies = () => {
-  // create state for holding returned google api data
+  // state for holding returned google api data
   const [searchedMovies, setSearchedMovies] = useState([]);
-  // create state for holding our search field data
+  // state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
 
-  // create state to hold saved movieId values
+  // state to hold saved movieId values
   const [savedMovieIds, setSavedMovieIds] = useState(getSavedMovieIds());
 
   const [saveMovie, { error }] = useMutation(SAVE_MOVIE);
 
-  // set up useEffect hook to save `savedMovieIds` list to localStorage on component unmount
-  // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
+  //useEffect hook to save `savedMovieIds` list to localStorage on component unmount
   useEffect(() => {
     return () => saveMovieIds(savedMovieIds);
   });
 
-  // create method to search for movies and set state on form submit
+  // search for movies and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     if (!searchInput) {
       return false;
     }
-
+    
     try {
+      // const ApiKey= process.env.REACT_APP_RAPID_API_KEY;
       const response = await fetch(
         `https://www.omdbapi.com/?s=${searchInput}&apikey=3de5f363`
-        // `https://www.googleapis.com/books/v1/volumes?q=${searchInput}`
+         
       );
 
       if (!response.ok) {
@@ -74,7 +73,7 @@ const SearchMovies = () => {
   };
 
 
-  // create function to handle saving a movie to our database
+  //function to handle saving a movie to our database
   const handleSaveMovie = async (movieId) => {
     // find the movie in `searchedmovies` state by the matching id
     const movieToSave = searchedMovies.find((movie) => movie.movieId === movieId);
