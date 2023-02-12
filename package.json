@@ -2,6 +2,9 @@
   "name": "search-movie-gp3",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "16"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
