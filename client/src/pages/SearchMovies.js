@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import {
   Jumbotron,
@@ -55,13 +54,13 @@ const SearchMovies = () => {
       console.log(Search);
 
 
-      const movieData = Search.map((video) => ({
+      const movieData = Search.map((movie) => ({
         
-        movieId: video.imdbID,
-        year: video.Year || ['No year to display'],
-        title: video.Title,
-        description: video.Type,
-        image: video.Poster || '',
+        movieId: movie.imdbID,
+        year: movie.Year || ['No year to display'],
+        title: movie.Title,
+        description: movie.Type,
+        image: movie.Poster || '',
       }));
       // console.log(search[0]);
 
