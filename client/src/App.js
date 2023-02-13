@@ -7,7 +7,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import SearchMovies from './pages/SearchMovies';
 import SavedMovies from './pages/SavedMovies';
 import Navbar from './components/Navbar';
@@ -61,5 +61,5 @@ function App() {
     </ApolloProvider>
   );
 }
-export default App;
 
+export default App;
