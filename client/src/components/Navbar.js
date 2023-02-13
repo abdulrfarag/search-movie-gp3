@@ -15,7 +15,7 @@ const AppNavbar = () => {
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-          Powerd by OMDb API
+          <a  href='https://www.omdbapi.com/' target='_blank' rel='noopener noferrer'>Powerd by OMDb API</a>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
