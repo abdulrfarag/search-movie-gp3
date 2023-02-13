@@ -57,10 +57,10 @@ const SearchMovies = () => {
 
       const movieData = Search.map((video) => ({
         
-        movieId: video.Year,
-        Year: video.Year || ['No author to display'],
+        movieId: video.imdbID,
+        year: video.Year || ['No year to display'],
         title: video.Title,
-        description: video.Title,
+        description: video.Type,
         image: video.Poster || '',
       }));
       // console.log(search[0]);
@@ -141,7 +141,7 @@ const SearchMovies = () => {
                 ) : null}
                 <Card.Body>
                   <Card.Title>{movie.title}</Card.Title>
-                  <p className="small">Year: {movie.Year}</p>
+                  <p className="small">Year: {movie.year}</p>
                   <Card.Text>{movie.description}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button

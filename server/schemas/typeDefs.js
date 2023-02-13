@@ -11,7 +11,7 @@ const typeDefs = gql`
 
   type Movie {
     movieId: ID!
-    authors: [String]
+    year: [String]
     description: String
     image: String
     link: String
@@ -24,7 +24,7 @@ const typeDefs = gql`
   }
 
   input MovieInput {
-    authors: [String]
+    year: [String]
     description: String!
     movieId: String!
     image: String
